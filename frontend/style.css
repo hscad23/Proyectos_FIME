@@ -1,0 +1,164 @@
+/* =========================================
+   1. VARIABLES DE TEMA 
+   ========================================= */
+:root {
+    --bg-color: #050508;          /* Negro profundo */
+    --p3-blue: #0a40d8;           /* Azul característico  */
+    --p3-light-blue: #00d0ff;     /* Azul neón para brillos */
+    --text-main: #ffffff;
+    --text-muted: #888899;
+    --danger-red: #ff003c;        /* Para contrastes agresivos */
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* =========================================
+   2. RESET Y BASE
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-main);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Evita scroll para dar sensación de aplicación, no de web */
+    background-image: radial-gradient(circle at 50% 0%, #0a40d820 0%, transparent 50%);
+}
+
+/* =========================================
+   3. CONTENEDOR PRINCIPAL
+   ========================================= */
+.p3-container {
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================================
+   4. TIPOGRAFÍA Y CABECERA
+   ========================================= */
+.p3-header h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px var(--p3-blue), -2px -2px 0px var(--p3-light-blue);
+    transform: skewX(-5deg); 
+    margin-bottom: 5px;
+}
+
+.decorative-line {
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--p3-light-blue), transparent);
+    margin-bottom: 30px;
+}
+
+/* =========================================
+   5. FORMULARIO E INPUTS
+   ========================================= */
+.p3-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 20px;
+    border-left: 4px solid var(--p3-blue);
+    transition: all 0.3s ease;
+}
+
+.input-group:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-left-color: var(--p3-light-blue);
+    transform: translateX(10px); /* Pequeño salto al pasar el mouse */
+}
+
+.input-group label {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.input-group input {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--text-muted);
+    color: var(--p3-light-blue);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: right;
+    width: 100px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-bottom-color: var(--p3-light-blue);
+}
+
+/* =========================================
+   6. BOTONES P3 STYLE
+   ========================================= */
+.p3-button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: var(--p3-blue);
+    color: var(--text-main);
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 900;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); /* Corte diagonal en los bordes */
+    transition: all 0.2s ease;
+}
+
+.p3-button:hover {
+    background-color: var(--p3-light-blue);
+    transform: scale(1.05) skewX(-10deg);
+    box-shadow: 0 0 20px var(--p3-light-blue);
+}
+
+.p3-button:active {
+    transform: scale(0.95);
+}
+
+/* =========================================
+   7. RESULTADO (Oculto por defecto)
+   ========================================= */
+#resultado-container {
+    margin-top: 40px;
+    text-align: center;
+    background: var(--p3-blue);
+    padding: 20px;
+    clip-path: polygon(0 15px, 15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+}
+
+#resultado-container h2 {
+    font-size: 1.2rem;
+    color: var(--bg-color);
+}
+
+#valor-fem {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--text-main);
+}
+
+.hidden {
+    display: none !important;
+}
