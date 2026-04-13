@@ -7,9 +7,41 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="ui_container">
-        <h1>Simulador Magnetico</h1>
-        <div id="data-display">Experando conexion con el servidor ...</div>
+    <div class="p3-container">
+            <header class="p3-header">
+                <h1>Simulador de campos magneticos</h1>
+                <div class="decorative-line"></div>
+            </header>
+            <main class="p3-header">
+                <div class="input-group">
+                    <label>N° de esperisas (N)</label>
+                    <input type="number" id="espiras" value="100">
+                </div>
+                <div class="input-group">
+                    <label>Área (m²)</label>
+                    <input type="number" id="area" value="0.5">
+                </div>
+                <div class="input-group">
+                    <label>Campo inicial (T_i)</label>
+                    <input type="number" id="campo_inicial" value="0.2">
+                </div>
+                <div class="input-group">
+                    <label>Campo final (T_f)</label>
+                    <input type="number" id="campo_final" value="0.8">
+                </div>
+                <div class="input-group">
+                    <label>Tiempo (S)</label>
+                    <input type="number" id="tiempo" value="0.2">
+                </div>
+                <button id="btn-calculadora" class="p3-header">CALCULAR FEM</button>
+            </main>
+        <div id="resultado-container" class="hidden">
+            <h2>FEM INDUCIDA</h2>
+            <p id="valor-fem">0.00 V</p>
+        </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="app.js"></script>
 </body>
+
 </html>
