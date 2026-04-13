@@ -1,0 +1,25 @@
+#version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: faraday_backend 
+    ports:
+      - 8000:8000
+    volumes:
+      - ./backend:/app
+    environment:
+      - ENV=development
+  frontend: 
+    image: nginx:alpine
+    container_name: faraday_frontend
+    ports:
+      - "8080:80"
+    volumes:
+      - ./frontend:/usr/share/nginx/html
+    depends_on:
+      - backend
+
+
+
+
