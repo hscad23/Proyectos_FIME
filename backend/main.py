@@ -9,12 +9,19 @@ app.add_middleware(CORSMiddleware,
                    allow_methods=["*"],
                    allow_headers=["*"],
                    )
+class DatosFaraday(BaseModel):
+    espiras: int
+    area: float
+    campo_inicial: float
+    campo_final: float
+    tiempo: float
+
 @app.get("/")
 def read_root():
     return {"estado": "Servidor Activo", "proyecto": "Ley de Faraday"}
 
 @app.post("/calcular-fem")
-def calcular_fuerza_electromotriz(espiras: int, area: float, campo_inicial: float, campo_final: float, tiempo: float):
+def calcular_fuerza_electromotriz(datos: DatosFaraday):
     #formula
     delta_campo = campo_final - campo_inicial
     flujo_magnetico = area * delta_campo
